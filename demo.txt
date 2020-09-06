@@ -1,2 +1,6 @@
 changes added on remote respository by other contributors.
+<<<<<<< HEAD
 changes added by anurag
+=======
+new changes added by other contributor. 
+>>>>>>> 7f05d5d3cd70862c06a8ff652871f431a38884d7
