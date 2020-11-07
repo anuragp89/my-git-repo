@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "myRnDDataFactory"
+		},
+		"OutputAzureSQL_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'OutputAzureSQL'"
+		},
+		"myLocalPostgresql_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'myLocalPostgresql'"
+		},
+		"InputDataLake_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://myrnddatalake.dfs.core.windows.net"
+		},
+		"blob_Input_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://anuragblob1.blob.core.windows.net"
+		},
+		"myPipelieTrigger_properties_DataLakeToAzureSQL_parameters_fileName": {
+			"type": "string",
+			"defaultValue": " Planes.csv"
+		},
+		"myPipelieTrigger_properties_DataLakeToAzureSQL_parameters_tableName": {
+			"type": "string",
+			"defaultValue": "Planes"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "myRnDDataFactory_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"OutputAzureSQL_connectionString": {
+						"value": "[parameters('OutputAzureSQL_connectionString')]"
+					},
+					"myLocalPostgresql_connectionString": {
+						"value": "[parameters('myLocalPostgresql_connectionString')]"
+					},
+					"InputDataLake_properties_typeProperties_url": {
+						"value": "[parameters('InputDataLake_properties_typeProperties_url')]"
+					},
+					"blob_Input_properties_typeProperties_serviceEndpoint": {
+						"value": "[parameters('blob_Input_properties_typeProperties_serviceEndpoint')]"
+					},
+					"myPipelieTrigger_properties_DataLakeToAzureSQL_parameters_fileName": {
+						"value": "[parameters('myPipelieTrigger_properties_DataLakeToAzureSQL_parameters_fileName')]"
+					},
+					"myPipelieTrigger_properties_DataLakeToAzureSQL_parameters_tableName": {
+						"value": "[parameters('myPipelieTrigger_properties_DataLakeToAzureSQL_parameters_tableName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
