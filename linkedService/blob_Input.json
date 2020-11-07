@@ -1,0 +1,12 @@
+{
+	"name": "blob_Input",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"serviceEndpoint": "https://anuragblob1.blob.core.windows.net",
+			"accountKind": "StorageV2"
+		}
+	}
+}
