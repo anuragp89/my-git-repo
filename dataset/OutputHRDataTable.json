@@ -1,0 +1,122 @@
+{
+	"name": "OutputHRDataTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "OutputAzureSQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Region",
+				"type": "varchar"
+			},
+			{
+				"name": "Country",
+				"type": "varchar"
+			},
+			{
+				"name": "Headcount",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Managers",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "AverageDirects",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "OrgDepartments",
+				"type": "varchar"
+			},
+			{
+				"name": "PositionName",
+				"type": "varchar"
+			},
+			{
+				"name": "AniversarieThisMonth",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "NewStarters",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Vacancy",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Date",
+				"type": "date"
+			},
+			{
+				"name": "TotalEmployeesAtStartofYear",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TotalEmployeesAtEndofYear",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TotalEmployeesLost",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "AttritionPer",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 4
+			},
+			{
+				"name": "ExpectedAttritionPer",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 4
+			},
+			{
+				"name": "ExpectedAttrition",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 4
+			},
+			{
+				"name": "TargetHeadcount",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Gender",
+				"type": "varchar"
+			},
+			{
+				"name": "EmploymentType",
+				"type": "varchar"
+			},
+			{
+				"name": "Leavers",
+				"type": "varchar"
+			},
+			{
+				"name": "IncidentStatus",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "HRData"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

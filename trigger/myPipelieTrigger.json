@@ -1,0 +1,34 @@
+{
+	"name": "myPipelieTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "DataLakeToAzureSQL",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"fileName": " Planes.csv",
+					"tableName": "Planes"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2020-08-23T08:44:00Z",
+				"endTime": "2020-10-18T10:32:00Z",
+				"timeZone": "UTC",
+				"schedule": {
+					"hours": [
+						1
+					]
+				}
+			}
+		}
+	}
+}
